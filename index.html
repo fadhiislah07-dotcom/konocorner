@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kono Corner ♡ a little corner for your k-pop collection</title>
+<meta name="description" content="Kono Corner — binder deco, k-pop inspired digital designs, preloved k-pop items, photocards & albums.">
+
+<!-- Google Fonts: Baloo 2 (bubbly display), Nunito (clean body), Caveat (handwritten notes) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💙</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================= -->
+<!-- TOP TICKER / TAPE STRIP -->
+<!-- ============================================= -->
+<div class="tape-ticker" aria-hidden="true">
+  <div class="tape-ticker__track">
+    <span>✧ binder deco open ✧ preloved drops weekly ✧ k-pop digital designs ✧ dm to say hi ♡ ✧ binder deco open ✧ preloved drops weekly ✧ k-pop digital designs ✧ dm to say hi ♡ ✧</span>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- HEADER / NAV -->
+<!-- ============================================= -->
+<header class="site-header" id="top">
+  <div class="site-header__inner">
+    <a href="#top" class="brand">
+      <span class="brand__cd" aria-hidden="true">💿</span>
+      <span class="brand__text">Kono Corner <span class="heart">♡</span></span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <a href="#top" class="nav-link">home</a>
+      <a href="#about" class="nav-link">about</a>
+      <a href="#services" class="nav-link">services</a>
+      <a href="#price" class="nav-link">price</a>
+      <a href="#gallery" class="nav-link">gallery</a>
+      <a href="#faq" class="nav-link">faq</a>
+      <a href="#contact" class="nav-link nav-link--pill">contact</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================= -->
+<!-- MOBILE MENU -->
+<!-- ============================================= -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__page">
+    <div class="mobile-menu__rings" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <nav aria-label="Mobile">
+      <a href="#top" class="mobile-link">01. home</a>
+      <a href="#about" class="mobile-link">02. about</a>
+      <a href="#services" class="mobile-link">03. services</a>
+      <a href="#price" class="mobile-link">04. price</a>
+      <a href="#gallery" class="mobile-link">05. gallery</a>
+      <a href="#faq" class="mobile-link">06. faq</a>
+      <a href="#contact" class="mobile-link">07. contact</a>
+    </nav>
+    <p class="mobile-menu__note">see you in the corner ♡</p>
+  </div>
+</div>
+<div class="mobile-menu__backdrop" id="mobileBackdrop"></div>
+
+<main>
+
+<!-- ============================================= -->
+<!-- HERO -->
+<!-- ============================================= -->
+<section class="hero" id="home">
+  <div class="hero__inner">
+
+    <div class="hero__copy">
+      <p class="kicker-note">✧ welcome to my little corner ✧</p>
+      <h1 class="hero__title">
+        Welcome to<br>
+        Kono Corner <span class="heart">♡</span>
+      </h1>
+      <p class="hero__subtext">a little corner for your k-pop collection,<br>creative ideas &amp; pretty things.</p>
+
+      <div class="hero__buttons">
+        <a href="#services" class="btn btn--primary">explore services</a>
+        <a href="#contact" class="btn btn--ghost">say hi ♡</a>
+      </div>
+
+      <div class="now-playing" id="nowPlaying">
+        <button class="now-playing__play" id="playToggle" aria-label="Play or pause corner radio">
+          <svg id="iconPlay" width="14" height="14" viewBox="0 0 14 14"><polygon points="2,1 13,7 2,13" fill="currentColor"/></svg>
+          <svg id="iconPause" width="14" height="14" viewBox="0 0 14 14" style="display:none"><rect x="2" y="1" width="3.5" height="12" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" fill="currentColor"/></svg>
+        </button>
+        <div class="now-playing__info">
+          <p class="now-playing__label">now playing ♡</p>
+          <p class="now-playing__track">corner radio — lofi for sticker sorting</p>
+          <div class="now-playing__bar"><span id="nowPlayingProgress"></span></div>
+        </div>
+        <span class="now-playing__cd" aria-hidden="true">💿</span>
+      </div>
+    </div>
+
+    <div class="hero__scrapbook" aria-hidden="true">
+      <div class="binder-rings binder-rings--hero">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="scrap scrap--photocard float-slow" style="--r:-7deg">
+        <div class="photocard">
+          <div class="photocard__art">
+            <span class="photocard__star">★</span>
+            <div class="photocard__silhouette"></div>
+          </div>
+          <div class="photocard__strip">
+            <span>KONO CORNER</span>
+            <span>no. 07</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scrap scrap--polaroid float-slow" style="--r:6deg">
+        <div class="polaroid">
+          <div class="polaroid__photo">
+            <div class="polaroid__doodle-heart">♡</div>
+          </div>
+          <p class="polaroid__caption">my desk today :)</p>
+        </div>
+      </div>
+
+      <div class="scrap scrap--tape scrap--tape1" aria-hidden="true"></div>
+      <div class="scrap scrap--tape scrap--tape2" aria-hidden="true"></div>
+
+      <div class="scrap scrap--sticker sticker--star float-fast" style="--r:12deg">★</div>
+      <div class="scrap scrap--sticker sticker--heart float-fast" style="--r:-10deg">♡</div>
+      <div class="scrap scrap--sticker sticker--bow float-med" style="--r:8deg">
+        <svg width="30" height="22" viewBox="0 0 30 22" fill="none"><path d="M15 11c-2-6-9-9-13-6-3 2-2 8 4 8m9-2c2-6 9-9 13-6 3 2 2 8-4 8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="15" cy="11" r="2.4" fill="currentColor"/></svg>
+      </div>
+
+      <div class="scrap scrap--memo float-med" style="--r:-4deg">
+        <p>don't forget to<br>check the mail 📮</p>
+      </div>
+
+      <div class="scrap scrap--sparkle sparkle1">✦</div>
+      <div class="scrap scrap--sparkle sparkle2">✧</div>
+      <div class="scrap scrap--sparkle sparkle3">✦</div>
+
+    </div>
+  </div>
+
+  <button class="scroll-hint" id="scrollHint" aria-label="Scroll to about section">
+    <span>scroll</span>
+    <svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</section>
+
+<!-- ============================================= -->
+<!-- ABOUT -->
+<!-- ============================================= -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about__page">
+      <span class="washi washi--top" aria-hidden="true"></span>
+      <p class="kicker-note kicker-note--center">✧ page 01 ✧</p>
+      <h2 class="section-title">inside my little corner <span class="heart">♡</span></h2>
+
+      <div class="about__body">
+        <p>Kono Corner is a small creative space made for people who love collecting, decorating and making their favourite little things feel more personal — one sticker, one photocard, one binder page at a time.</p>
+        <p>It started as a hobby of decorating my own binders between comebacks, and slowly turned into a corner where I get to make that same cosy, "this is so <em>me</em>" feeling for other collectors too. Every deco, design and preloved item is picked or made with actual care — never mass-produced, never rushed.</p>
+        <p>If you're into photocards, stationery, cute clutter and turning ordinary things into something that feels like yours — welcome in, make yourself at home.</p>
+      </div>
+
+      <p class="about__signoff">— kono, running this corner solo ♡</p>
+
+      <div class="about__note about__note--1">
+        <p>thank you for<br>visiting!! 🩵</p>
+      </div>
+      <div class="about__note about__note--2">
+        <p>est. this corner<br>is handmade</p>
+      </div>
+      <span class="washi washi--bottom" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- SERVICES -->
+<!-- ============================================= -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <p class="kicker-note kicker-note--center">✧ pick your corner ✧</p>
+    <h2 class="section-title section-title--center">what's in the corner?</h2>
+
+    <div class="services__grid">
+
+      <article class="service-card" style="--r:-2.5deg">
+        <span class="service-card__pin" aria-hidden="true">📌</span>
+        <span class="service-card__num">01</span>
+        <h3 class="service-card__title">binder deco</h3>
+        <p class="service-card__text">Decorate your binder with a design that feels like <em>you</em> — themed pages, stickers &amp; all.</p>
+        <a href="#binder-deco" class="service-card__link">view details →</a>
+      </article>
+
+      <article class="service-card" style="--r:1.8deg">
+        <span class="service-card__pin" aria-hidden="true">📌</span>
+        <span class="service-card__num">02</span>
+        <h3 class="service-card__title">digital design</h3>
+        <p class="service-card__text">Custom k-pop inspired digital designs and printable creations for your own little projects.</p>
+        <a href="#contact" class="service-card__link">view details →</a>
+      </article>
+
+      <article class="service-card" style="--r:-1.5deg">
+        <span class="service-card__pin" aria-hidden="true">📌</span>
+        <span class="service-card__num">03</span>
+        <h3 class="service-card__title">preloved</h3>
+        <p class="service-card__text">Preloved k-pop items looking for a new home — gently kept, ready to be loved again.</p>
+        <a href="#contact" class="service-card__link">view details →</a>
+      </article>
+
+      <article class="service-card" style="--r:2.4deg">
+        <span class="service-card__pin" aria-hidden="true">📌</span>
+        <span class="service-card__num">04</span>
+        <h3 class="service-card__title">k-pop merch</h3>
+        <p class="service-card__text">Albums, photocards, and other small treasures to grow your collection.</p>
+        <a href="#contact" class="service-card__link">view details →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- BINDER DECO FEATURE -->
+<!-- ============================================= -->
+<section class="feature" id="binder-deco">
+  <div class="section-inner feature__inner">
+
+    <div class="feature__visual" aria-hidden="true">
+      <div class="binder">
+        <div class="binder-rings binder-rings--feature">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="binder__page">
+          <div class="binder__slot binder__slot--1"><span class="photocard__star small">★</span></div>
+          <div class="binder__slot binder__slot--2">♡</div>
+          <div class="binder__slot binder__slot--3"></div>
+          <div class="binder__slot binder__slot--4">✧</div>
+          <div class="binder__sticker">deco'd by kono ♡</div>
+        </div>
+      </div>
+      <div class="scrap scrap--tape scrap--tape3"></div>
+    </div>
+
+    <div class="feature__copy">
+      <p class="kicker-note">✧ the main event ✧</p>
+      <h2 class="section-title">binder deco service</h2>
+      <p class="feature__lead">This is where most of the magic happens — full binder makeovers designed around your bias, your colours, your vibe.</p>
+
+      <div class="feature__pricebox">
+        <div class="feature__pricerow">
+          <span class="feature__pricelabel">standard</span>
+          <span class="feature__pricevalue">RM16 – RM20+</span>
+        </div>
+        <div class="feature__pricerow">
+          <span class="feature__pricelabel">premium</span>
+          <span class="feature__pricevalue">RM21 – RM26+</span>
+        </div>
+      </div>
+
+      <p class="feature__note">price may vary depending on complexity.</p>
+      <p class="feature__note feature__note--strong">half payment is required before the service begins.</p>
+
+      <a href="#contact" class="btn btn--primary">book a deco slot</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- HOW IT WORKS -->
+<!-- ============================================= -->
+<section class="how" id="how-it-works">
+  <div class="section-inner">
+    <p class="kicker-note kicker-note--center">✧ how it works ✧</p>
+    <h2 class="section-title section-title--center">from idea to deco'd</h2>
+
+    <ol class="timeline">
+      <li class="timeline__step" style="--r:-1.5deg">
+        <span class="timeline__num">01</span>
+        <p class="timeline__text">choose your service</p>
+      </li>
+      <li class="timeline__step" style="--r:1.2deg">
+        <span class="timeline__num">02</span>
+        <p class="timeline__text">send your reference / idea</p>
+      </li>
+      <li class="timeline__step" style="--r:-1deg">
+        <span class="timeline__num">03</span>
+        <p class="timeline__text">confirm the price</p>
+      </li>
+      <li class="timeline__step" style="--r:1.8deg">
+        <span class="timeline__num">04</span>
+        <p class="timeline__text">make the required payment</p>
+      </li>
+      <li class="timeline__step" style="--r:-2deg">
+        <span class="timeline__num">05</span>
+        <p class="timeline__text">deco begins ♡</p>
+      </li>
+      <li class="timeline__step" style="--r:1deg">
+        <span class="timeline__num">06</span>
+        <p class="timeline__text">your finished piece is prepared for delivery</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- GALLERY -->
+<!-- ============================================= -->
+<section class="gallery" id="gallery">
+  <div class="section-inner">
+    <p class="kicker-note kicker-note--center">✧ freshly made ✧</p>
+    <h2 class="section-title section-title--center">little things I've made ♡</h2>
+
+    <div class="gallery__grid" id="galleryGrid">
+      <!-- REPLACE THIS IMAGE: swap each .gallery-item__ph placeholder div for an <img src="assets/images/your-photo.jpg" alt="..."> -->
+      <button class="gallery-item gallery-item--tall" data-caption="starlight binder set — full deco" style="--r:-2deg">
+        <span class="gallery-item__ph gallery-item__ph--binder">binder deco</span>
+      </button>
+      <button class="gallery-item" data-caption="handmade sticker sheet no. 3" style="--r:1.5deg">
+        <span class="gallery-item__ph gallery-item__ph--sticker">sticker sheet</span>
+      </button>
+      <button class="gallery-item" data-caption="digital photocard layout" style="--r:-1.2deg">
+        <span class="gallery-item__ph gallery-item__ph--digital">digital design</span>
+      </button>
+      <button class="gallery-item gallery-item--tall" data-caption="dreamy blue theme binder" style="--r:2deg">
+        <span class="gallery-item__ph gallery-item__ph--binder2">binder deco</span>
+      </button>
+      <button class="gallery-item" data-caption="washi &amp; sticker combo pack" style="--r:-1.6deg">
+        <span class="gallery-item__ph gallery-item__ph--sticker2">sticker sheet</span>
+      </button>
+      <button class="gallery-item" data-caption="photocard-inspired moodboard" style="--r:1.1deg">
+        <span class="gallery-item__ph gallery-item__ph--digital2">photocard set</span>
+      </button>
+      <!-- add more .gallery-item buttons here following the same pattern -->
+    </div>
+  </div>
+</section>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox__box">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close preview">✕</button>
+    <div class="lightbox__image" id="lightboxImage"></div>
+    <p class="lightbox__caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- PRICE -->
+<!-- ============================================= -->
+<section class="price" id="price">
+  <div class="section-inner">
+    <p class="kicker-note kicker-note--center">✧ price board ✧</p>
+    <h2 class="section-title section-title--center">binder deco pricing</h2>
+
+    <div class="price-board">
+      <div class="price-board__pin" aria-hidden="true">📍</div>
+
+      <div class="price-card" style="--r:-1.5deg">
+        <p class="price-card__tag">standard</p>
+        <p class="price-card__amount">RM16 <span>–</span> RM20+</p>
+        <p class="price-card__desc">a simpler, everyday deco — perfect for a cute refresh.</p>
+      </div>
+
+      <div class="price-card price-card--premium" style="--r:1.5deg">
+        <span class="price-card__badge">most loved ♡</span>
+        <p class="price-card__tag">premium</p>
+        <p class="price-card__amount">RM21 <span>–</span> RM26+</p>
+        <p class="price-card__desc">a fuller, more detailed deco with extra little touches.</p>
+      </div>
+
+      <p class="price-board__note">prices may vary depending on complexity ♡</p>
+      <p class="price-board__stamp">half payment first</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- FAQ -->
+<!-- ============================================= -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <p class="kicker-note kicker-note--center">✧ curious minds ✧</p>
+    <h2 class="section-title section-title--center">frequently asked ♡</h2>
+
+    <div class="accordion" id="accordion">
+
+      <div class="accordion__item">
+        <button class="accordion__question" aria-expanded="false">
+          <span>What is Binder Deco Service?</span>
+          <span class="accordion__icon">＋</span>
+        </button>
+        <div class="accordion__answer">
+          <p>It's where I decorate your binder (or a new one) with a design built around your bias, favourite colours or a theme you like — stickers, layouts, little details and all.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__question" aria-expanded="false">
+          <span>Can I send my own binder?</span>
+          <span class="accordion__icon">＋</span>
+        </button>
+        <div class="accordion__answer">
+          <p>Yes! You're welcome to send in your own binder for deco, or I can help source one for you — just let me know when we chat.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__question" aria-expanded="false">
+          <span>How does the payment work?</span>
+          <span class="accordion__icon">＋</span>
+        </button>
+        <div class="accordion__answer">
+          <p>Half payment is required upfront before I start decorating, and the remaining half is due once your piece is ready for delivery.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__question" aria-expanded="false">
+          <span>Can I request a specific design?</span>
+          <span class="accordion__icon">＋</span>
+        </button>
+        <div class="accordion__answer">
+          <p>Of course — sending references, colour palettes or a rough idea helps a lot, but I'm also happy to design something from scratch if you'd rather leave it to me.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__question" aria-expanded="false">
+          <span>Will the price change depending on my design?</span>
+          <span class="accordion__icon">＋</span>
+        </button>
+        <div class="accordion__answer">
+          <p>It can — more detailed designs, extra layers or specific materials may push the price toward the higher end of the range. I'll always confirm the price with you first.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__question" aria-expanded="false">
+          <span>How long does the service take?</span>
+          <span class="accordion__icon">＋</span>
+        </button>
+        <div class="accordion__answer">
+          <p>It depends on how detailed the deco is and my current queue, but I'll always keep you updated on the status while it's being made.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- CONTACT -->
+<!-- ============================================= -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact__card">
+      <span class="washi washi--top" aria-hidden="true"></span>
+      <p class="kicker-note kicker-note--center">✧ dm me ✧</p>
+      <h2 class="section-title section-title--center">let's be mutuals ♡</h2>
+      <p class="contact__lead">have an idea?<br>come tell me ♡</p>
+
+      <div class="contact__socials">
+        <!-- CHANGE SOCIAL LINK HERE -->
+        <a class="social-btn social-btn--telegram" href="https://t.me/fdhislhhh" target="_blank" rel="noopener">
+          <span class="social-btn__icon">✈️</span> telegram
+        </a>
+        <!-- CHANGE SOCIAL LINK HERE -->
+        <a class="social-btn social-btn--instagram" href="https://www.instagram.com/is.emyuell_?stkn=MWJkd2o5aGdwdmVjNw==" target="_blank" rel="noopener">
+          <span class="social-btn__icon">📷</span> instagram
+        </a>
+        <!-- CHANGE SOCIAL LINK HERE -->
+        <a class="social-btn social-btn--tiktok" href="https://www.tiktok.com/@faddhh._?_r=1&_t=ZS-99crpgRQ8Gq" target="_blank" rel="noopener">
+          <span class="social-btn__icon">🎵</span> tiktok
+        </a>
+      </div>
+
+      <div class="contact__qr" aria-hidden="true">
+        <div class="qr-fake">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p>scan me (visual only) ✧</p>
+      </div>
+      <span class="washi washi--bottom" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================= -->
+<!-- FOOTER -->
+<!-- ============================================= -->
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p class="site-footer__brand">Kono Corner <span class="heart">♡</span></p>
+    <p class="site-footer__tag">a little corner for your k-pop collection</p>
+
+    <div class="site-footer__status" id="footerStatus">
+      <span class="status-dot"></span>
+      <span id="statusText">currently decorating a binder...</span>
+    </div>
+
+    <div class="site-footer__clock" id="clock" aria-hidden="true">00:00</div>
+
+    <p class="site-footer__made">made with love ♡</p>
+    <!-- EDIT BRAND TEXT HERE -->
+    <p class="site-footer__copy">© <span id="year"></span> Kono Corner. all rights reserved.</p>
+  </div>
+</footer>
+
+<!-- notification popup -->
+<div class="toast" id="toast">
+  <span class="toast__icon">🩵</span>
+  <p id="toastText">someone just added a photocard to their binder ♡</p>
+  <button class="toast__close" id="toastClose" aria-label="Dismiss notification">✕</button>
+</div>
+
+<!-- cute little floating cursor sparkle (desktop only, css-driven) -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
