@@ -110,7 +110,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   outline-offset: 4px;
 }
 
-.heart { color: var(--blue-ink); }
+.heart { color: var(--blue-ink); font-family: Arial, "Segoe UI Symbol", sans-serif; }
 
 .kicker-note {
   font-family: var(--font-hand);
@@ -577,7 +577,7 @@ body.menu-open { overflow: hidden; }
 }
 
 .scrap--tape { width: 64px; height: 24px; background: repeating-linear-gradient(45deg, var(--blue-sky), var(--blue-sky) 5px, var(--blue-baby-2) 5px, var(--blue-baby-2) 10px); opacity: 0.9; box-shadow: var(--shadow-tape); z-index: 2; }
-.scrap--tape1 { top: -1%; left: 3%; transform: rotate(-38deg); }
+.scrap--tape1 { top: 8%; left: 4%; transform: rotate(-24deg); }
 .scrap--tape2 { top: 34%; right: 3%; transform: rotate(32deg); }
 
 .scrap--sticker {
