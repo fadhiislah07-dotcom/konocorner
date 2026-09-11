@@ -167,7 +167,7 @@
   var statuses = [
     "currently decorating a binder...",
     "sorting stickers by colour ✧",
-    "wrapping a preloved photocard 🩵",
+    "wrapping a preloved photocard ♡",
     "sketching a new digital design...",
     "answering DMs between decos ♡"
   ];
@@ -191,25 +191,44 @@
   var toastClose = document.getElementById("toastClose");
   var toastMessages = [
     "someone just added a photocard to their binder ♡",
-    "a new preloved item was just picked up 🩵",
+    "a new preloved item was just picked up ♡",
     "a binder deco slot just got booked ✧",
     "someone said hi in the DMs just now ♡"
   ];
 
+  var toastShownCount = 0;
+  var toastMaxShows = 3; // a little easter egg, not a nag — it stops on its own
+  var toastDismissedByUser = false;
+  var toastHideTimer = null;
+  var toastNextTimer = null;
+
+  function scheduleNextToast(delay) {
+    if (toastDismissedByUser || toastShownCount >= toastMaxShows) return;
+    toastNextTimer = setTimeout(showToast, delay);
+  }
   function showToast() {
-    if (!toast) return;
+    if (!toast || toastDismissedByUser || toastShownCount >= toastMaxShows) return;
     toastText.textContent = toastMessages[Math.floor(Math.random() * toastMessages.length)];
     toast.classList.add("is-visible");
-    setTimeout(hideToast, 6000);
+    toastShownCount += 1;
+    toastHideTimer = setTimeout(hideToast, 6000);
+    scheduleNextToast(50000);
   }
   function hideToast() {
     if (toast) toast.classList.remove("is-visible");
   }
-  if (toastClose) toastClose.addEventListener("click", hideToast);
+  if (toastClose) {
+    toastClose.addEventListener("click", function () {
+      // once someone closes it themselves, don't bring it back this visit
+      toastDismissedByUser = true;
+      if (toastHideTimer) clearTimeout(toastHideTimer);
+      if (toastNextTimer) clearTimeout(toastNextTimer);
+      hideToast();
+    });
+  }
 
   // first appearance after a little delay, so it feels natural
-  setTimeout(showToast, 5000);
-  setInterval(showToast, 45000);
+  scheduleNextToast(6000);
 
   /* -----------------------------------------------------------
      CURSOR SPARKLE GLOW (desktop only, purely decorative)
