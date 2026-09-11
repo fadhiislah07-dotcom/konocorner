@@ -753,7 +753,6 @@ body.menu-open { overflow: hidden; }
 .service-card__title {
   font-size: 1.25rem;
   margin: 14px 0 8px;
-  text-transform: lowercase;
 }
 .service-card__text {
   font-size: 0.94rem;
@@ -883,7 +882,7 @@ body.menu-open { overflow: hidden; }
   font-weight: 600;
 }
 .feature__pricerow + .feature__pricerow { border-top: 1px dashed rgba(255,255,255,0.25); }
-.feature__pricelabel { text-transform: lowercase; color: var(--blue-baby); }
+.feature__pricelabel { color: var(--blue-baby); }
 .feature__pricevalue { color: var(--cream); }
 .feature__note { font-size: 0.88rem; color: var(--blue-baby); margin-bottom: 4px; }
 .feature__note--strong { color: var(--cream); font-weight: 700; margin-bottom: 20px; }
@@ -920,7 +919,7 @@ body.menu-open { overflow: hidden; }
   font-size: 1.15rem;
   color: var(--blue-ink);
 }
-.timeline__text { font-weight: 700; color: var(--navy); font-family: var(--font-display); font-size: 1rem; text-transform: lowercase; }
+.timeline__text { font-weight: 700; color: var(--navy); font-family: var(--font-display); font-size: 1rem; }
 .timeline__step:not(:last-child)::after {
   content: "↓";
   position: absolute;
@@ -965,7 +964,6 @@ body.menu-open { overflow: hidden; }
   font-weight: 700;
   color: var(--off-white);
   font-size: 0.95rem;
-  text-transform: lowercase;
   padding: 10px;
 }
 .gallery-item--tall .gallery-item__ph { height: 230px; }
@@ -1081,7 +1079,6 @@ body.menu-open { overflow: hidden; }
 }
 .price-card__tag {
   font-family: var(--font-display);
-  text-transform: lowercase;
   font-weight: 700;
   color: var(--blue-ink);
   margin-bottom: 6px;
