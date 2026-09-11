@@ -494,10 +494,12 @@ body.menu-open { overflow: hidden; }
   background: var(--off-white);
 }
 .binder-rings--hero {
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  gap: clamp(24px, 7vw, 46px);
+  top: 3%;
+  left: 6%;
+  width: clamp(98px, 27vw, 132px);
+  transform: translateY(-60%);
+  justify-content: space-between;
+  gap: 0;
 }
 
 .scrap { position: absolute; z-index: 1; }
@@ -1339,7 +1341,7 @@ body.menu-open { overflow: hidden; }
   .hero__subtext { margin: 0 0 26px; }
   .hero__buttons { justify-content: flex-start; }
   .now-playing { margin: 0; }
-  .hero__scrapbook { height: clamp(360px, 34vw, 480px); max-width: none; }
+  .hero__scrapbook { height: clamp(360px, 34vw, 480px); }
 
   .feature__inner { grid-template-columns: 0.9fr 1.1fr; }
   .services__grid { grid-template-columns: repeat(4, 1fr); }
