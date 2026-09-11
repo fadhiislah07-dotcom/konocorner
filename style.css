@@ -472,6 +472,7 @@ body.menu-open { overflow: hidden; }
    positioned with % so nothing clips on narrow screens */
 .hero__scrapbook {
   position: relative;
+  width: 100%;
   height: clamp(300px, 62vw, 420px);
   max-width: 480px;
   margin: 0 auto;
