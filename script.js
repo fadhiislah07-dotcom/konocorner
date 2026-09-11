@@ -113,18 +113,83 @@
   });
 
   /* -----------------------------------------------------------
-     FAKE "NOW PLAYING" MUSIC PLAYER (visual only, no real audio)
+     "NOW PLAYING" MUSIC PLAYER
+     Plays a tiny original lofi-style loop generated entirely in
+     code (soft chords + a gentle tick) — no audio files, no
+     copyrighted samples, works the instant someone hits play.
+     Want to use a real track instead? See the note in README.md.
   ----------------------------------------------------------- */
   var playToggle = document.getElementById("playToggle");
   var iconPlay = document.getElementById("iconPlay");
   var iconPause = document.getElementById("iconPause");
   var progressBar = document.getElementById("nowPlayingProgress");
   var isPlaying = false;
-  var progress = 35;
+  var progress = 0;
   var progressTimer = null;
 
+  var audioCtx = null;
+  var loopTimer = null;
+  var LOOP_SECONDS = 8;
+
+  function ensureAudioCtx() {
+    if (!audioCtx) {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      audioCtx = new AC();
+    }
+    return audioCtx;
+  }
+
+  // one soft sine "note" with a gentle fade in/out, so nothing clicks or pops
+  function playNote(ctx, freq, startTime, duration, peakGain) {
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0, startTime);
+    gain.gain.linearRampToValueAtTime(peakGain, startTime + 0.5);
+    gain.gain.linearRampToValueAtTime(0, startTime + duration);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(startTime);
+    osc.stop(startTime + duration + 0.05);
+  }
+
+  // a tiny soft "tick", like a sticker being sorted into a pile
+  function playTick(ctx, startTime) {
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = "triangle";
+    osc.frequency.value = 1100;
+    gain.gain.setValueAtTime(0.04, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.07);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(startTime);
+    osc.stop(startTime + 0.08);
+  }
+
+  // one 8-second phrase: four soft chords, two ticks per chord
+  function scheduleLoop(ctx) {
+    var base = ctx.currentTime + 0.05;
+    var chords = [
+      [130.81, 164.81, 196.0],   // C major, down an octave — warm and low
+      [123.47, 146.83, 185.0],   // B dim-ish passing chord
+      [110.0, 138.59, 164.81],   // A minor
+      [116.54, 146.83, 174.61]   // gentle resolve
+    ];
+    chords.forEach(function (freqs, i) {
+      var chordStart = base + i * (LOOP_SECONDS / 4);
+      freqs.forEach(function (freq) {
+        playNote(ctx, freq, chordStart, LOOP_SECONDS / 4 + 0.3, 0.045);
+      });
+      playTick(ctx, chordStart);
+      playTick(ctx, chordStart + LOOP_SECONDS / 8);
+    });
+  }
+
   function tickProgress() {
-    progress += 1;
+    progress += 100 / (LOOP_SECONDS / 0.2);
     if (progress > 100) progress = 0;
     if (progressBar) progressBar.style.width = progress + "%";
   }
@@ -132,7 +197,7 @@
   function startProgress() {
     if (prefersReducedMotion) return;
     stopProgress();
-    progressTimer = setInterval(tickProgress, 700);
+    progressTimer = setInterval(tickProgress, 200);
   }
   function stopProgress() {
     if (progressTimer) clearInterval(progressTimer);
@@ -146,7 +211,20 @@
         iconPlay.style.display = isPlaying ? "none" : "block";
         iconPause.style.display = isPlaying ? "block" : "none";
       }
-      if (isPlaying) { startProgress(); } else { stopProgress(); }
+      if (isPlaying) {
+        var ctx = ensureAudioCtx();
+        if (ctx) {
+          if (ctx.state === "suspended") ctx.resume();
+          scheduleLoop(ctx);
+          loopTimer = setInterval(function () { scheduleLoop(ctx); }, LOOP_SECONDS * 1000);
+        }
+        startProgress();
+      } else {
+        if (loopTimer) clearInterval(loopTimer);
+        loopTimer = null;
+        if (audioCtx) audioCtx.suspend();
+        stopProgress();
+      }
     });
   }
 
