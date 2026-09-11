@@ -165,11 +165,11 @@
   setInterval(updateClock, 1000 * 15);
 
   var statuses = [
-    "currently decorating a binder...",
-    "sorting stickers by colour ✧",
-    "wrapping a preloved photocard ♡",
-    "sketching a new digital design...",
-    "answering DMs between decos ♡"
+    "Currently decorating a binder...",
+    "Sorting stickers by colour ✧",
+    "Wrapping a preloved photocard ♡",
+    "Sketching a new digital design...",
+    "Answering DMs between decos ♡"
   ];
   var statusText = document.getElementById("statusText");
   var statusIndex = 0;
@@ -190,10 +190,10 @@
   var toastText = document.getElementById("toastText");
   var toastClose = document.getElementById("toastClose");
   var toastMessages = [
-    "someone just added a photocard to their binder ♡",
-    "a new preloved item was just picked up ♡",
-    "a binder deco slot just got booked ✧",
-    "someone said hi in the DMs just now ♡"
+    "Someone just added a photocard to their binder ♡",
+    "A new preloved item was just picked up ♡",
+    "A binder deco slot just got booked ✧",
+    "Someone said hi in the DMs just now ♡"
   ];
 
   var toastShownCount = 0;
