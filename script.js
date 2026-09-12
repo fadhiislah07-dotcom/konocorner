@@ -114,16 +114,19 @@
 
   /* -----------------------------------------------------------
      "NOW PLAYING" MUSIC PLAYER
-     Plays a tiny original lofi-style loop generated entirely in
-     code (soft chords + a gentle tick) — no audio files, no
-     copyrighted samples, works the instant someone hits play.
-     Want to use a real track instead? See the note in README.md.
+     Tries to play a real track from assets/audio/corner-radio.mp3
+     first. If that file isn't there (or fails to load), it falls
+     back automatically to a tiny original synth loop generated in
+     code (soft chords + a gentle tick) — so the button always does
+     something, whether or not you've added your own track.
   ----------------------------------------------------------- */
   var playToggle = document.getElementById("playToggle");
   var iconPlay = document.getElementById("iconPlay");
   var iconPause = document.getElementById("iconPause");
   var progressBar = document.getElementById("nowPlayingProgress");
+  var cornerAudio = document.getElementById("cornerAudio");
   var isPlaying = false;
+  var usingRealAudio = false;
   var progress = 0;
   var progressTimer = null;
 
@@ -170,8 +173,6 @@
   }
 
   // one 8-second phrase: four soft chords, two ticks per chord
-  // (pitched a full octave higher than a first draft — the lower version
-  // barely reproduced on laptop/phone speakers and was easy to miss)
   function scheduleLoop(ctx) {
     var base = ctx.currentTime + 0.05;
     var chords = [
@@ -190,20 +191,42 @@
     });
   }
 
-  function tickProgress() {
+  function startSynthLoop() {
+    var ctx = ensureAudioCtx();
+    if (!ctx) return;
+    if (ctx.state === "suspended") ctx.resume();
+    scheduleLoop(ctx);
+    loopTimer = setInterval(function () { scheduleLoop(ctx); }, LOOP_SECONDS * 1000);
+    startFakeProgress();
+  }
+  function stopSynthLoop() {
+    if (loopTimer) clearInterval(loopTimer);
+    loopTimer = null;
+    if (audioCtx) audioCtx.suspend();
+    stopProgress();
+  }
+
+  function tickFakeProgress() {
     progress += 100 / (LOOP_SECONDS / 0.2);
     if (progress > 100) progress = 0;
     if (progressBar) progressBar.style.width = progress + "%";
   }
-
-  function startProgress() {
+  function startFakeProgress() {
     if (prefersReducedMotion) return;
     stopProgress();
-    progressTimer = setInterval(tickProgress, 200);
+    progressTimer = setInterval(tickFakeProgress, 200);
   }
   function stopProgress() {
     if (progressTimer) clearInterval(progressTimer);
     progressTimer = null;
+  }
+
+  // keep the progress bar in sync with the real track when one is playing
+  if (cornerAudio) {
+    cornerAudio.addEventListener("timeupdate", function () {
+      if (!usingRealAudio || !progressBar || !cornerAudio.duration) return;
+      progressBar.style.width = (cornerAudio.currentTime / cornerAudio.duration) * 100 + "%";
+    });
   }
 
   if (playToggle) {
@@ -213,18 +236,32 @@
         iconPlay.style.display = isPlaying ? "none" : "block";
         iconPause.style.display = isPlaying ? "block" : "none";
       }
+
       if (isPlaying) {
-        var ctx = ensureAudioCtx();
-        if (ctx) {
-          if (ctx.state === "suspended") ctx.resume();
-          scheduleLoop(ctx);
-          loopTimer = setInterval(function () { scheduleLoop(ctx); }, LOOP_SECONDS * 1000);
+        if (cornerAudio) {
+          var playAttempt = cornerAudio.play();
+          if (playAttempt && typeof playAttempt.then === "function") {
+            playAttempt.then(function () {
+              usingRealAudio = true;
+              if (!prefersReducedMotion) progressBar && (progressBar.style.transition = "width 0.15s linear");
+            }).catch(function () {
+              // no track file present (or it failed to load) — fall back to the synth loop
+              usingRealAudio = false;
+              startSynthLoop();
+            });
+          } else {
+            // very old browsers without a Promise-based play() — assume it worked
+            usingRealAudio = true;
+          }
+        } else {
+          startSynthLoop();
         }
-        startProgress();
       } else {
-        if (loopTimer) clearInterval(loopTimer);
-        loopTimer = null;
-        if (audioCtx) audioCtx.suspend();
+        if (usingRealAudio && cornerAudio) {
+          cornerAudio.pause();
+        } else {
+          stopSynthLoop();
+        }
         stopProgress();
       }
     });
