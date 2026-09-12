@@ -244,8 +244,9 @@
             playAttempt.then(function () {
               usingRealAudio = true;
               if (!prefersReducedMotion) progressBar && (progressBar.style.transition = "width 0.15s linear");
-            }).catch(function () {
+            }).catch(function (err) {
               // no track file present (or it failed to load) — fall back to the synth loop
+              console.warn("Kono Corner: couldn't play assets/audio/corner-radio.mp3, falling back to synth loop.", err, cornerAudio.error);
               usingRealAudio = false;
               startSynthLoop();
             });
