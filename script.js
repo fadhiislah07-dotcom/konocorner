@@ -161,7 +161,7 @@
     var gain = ctx.createGain();
     osc.type = "triangle";
     osc.frequency.value = 1100;
-    gain.gain.setValueAtTime(0.04, startTime);
+    gain.gain.setValueAtTime(0.09, startTime);
     gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.07);
     osc.connect(gain);
     gain.connect(ctx.destination);
@@ -170,18 +170,20 @@
   }
 
   // one 8-second phrase: four soft chords, two ticks per chord
+  // (pitched a full octave higher than a first draft — the lower version
+  // barely reproduced on laptop/phone speakers and was easy to miss)
   function scheduleLoop(ctx) {
     var base = ctx.currentTime + 0.05;
     var chords = [
-      [130.81, 164.81, 196.0],   // C major, down an octave — warm and low
-      [123.47, 146.83, 185.0],   // B dim-ish passing chord
-      [110.0, 138.59, 164.81],   // A minor
-      [116.54, 146.83, 174.61]   // gentle resolve
+      [261.63, 329.63, 392.0],   // C major — warm, mid-range
+      [246.94, 293.66, 369.99],  // B dim-ish passing chord
+      [220.0, 277.18, 329.63],   // A minor
+      [233.08, 293.66, 349.23]   // gentle resolve
     ];
     chords.forEach(function (freqs, i) {
       var chordStart = base + i * (LOOP_SECONDS / 4);
       freqs.forEach(function (freq) {
-        playNote(ctx, freq, chordStart, LOOP_SECONDS / 4 + 0.3, 0.045);
+        playNote(ctx, freq, chordStart, LOOP_SECONDS / 4 + 0.3, 0.11);
       });
       playTick(ctx, chordStart);
       playTick(ctx, chordStart + LOOP_SECONDS / 8);
