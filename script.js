@@ -154,21 +154,7 @@
     osc.stop(startTime + duration + 0.05);
   }
 
-  // a tiny soft "tick", like a sticker being sorted into a pile
-  function playTick(ctx, startTime) {
-    var osc = ctx.createOscillator();
-    var gain = ctx.createGain();
-    osc.type = "triangle";
-    osc.frequency.value = 1100;
-    gain.gain.setValueAtTime(0.09, startTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.07);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start(startTime);
-    osc.stop(startTime + 0.08);
-  }
-
-  // one 8-second phrase: four soft chords, two ticks per chord
+  // one 8-second phrase: four soft chords
   function scheduleLoop(ctx) {
     var base = ctx.currentTime + 0.05;
     var chords = [
@@ -182,8 +168,6 @@
       freqs.forEach(function (freq) {
         playNote(ctx, freq, chordStart, LOOP_SECONDS / 4 + 0.3, 0.11);
       });
-      playTick(ctx, chordStart);
-      playTick(ctx, chordStart + LOOP_SECONDS / 8);
     });
   }
 
