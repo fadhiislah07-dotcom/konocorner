@@ -114,19 +114,15 @@
 
   /* -----------------------------------------------------------
      "NOW PLAYING" MUSIC PLAYER
-     Tries to play a real track from assets/audio/corner-radio.mp3
-     first. If that file isn't there (or fails to load), it falls
-     back automatically to a tiny original synth loop generated in
-     code (soft chords + a gentle tick) — so the button always does
-     something, whether or not you've added your own track.
+     Plays a tiny original lofi-style loop generated entirely in
+     code (soft chords + a gentle tick) — no audio files needed,
+     works the instant someone hits play.
   ----------------------------------------------------------- */
   var playToggle = document.getElementById("playToggle");
   var iconPlay = document.getElementById("iconPlay");
   var iconPause = document.getElementById("iconPause");
   var progressBar = document.getElementById("nowPlayingProgress");
-  var cornerAudio = document.getElementById("cornerAudio");
   var isPlaying = false;
-  var usingRealAudio = false;
   var progress = 0;
   var progressTimer = null;
 
@@ -191,42 +187,20 @@
     });
   }
 
-  function startSynthLoop() {
-    var ctx = ensureAudioCtx();
-    if (!ctx) return;
-    if (ctx.state === "suspended") ctx.resume();
-    scheduleLoop(ctx);
-    loopTimer = setInterval(function () { scheduleLoop(ctx); }, LOOP_SECONDS * 1000);
-    startFakeProgress();
-  }
-  function stopSynthLoop() {
-    if (loopTimer) clearInterval(loopTimer);
-    loopTimer = null;
-    if (audioCtx) audioCtx.suspend();
-    stopProgress();
-  }
-
-  function tickFakeProgress() {
+  function tickProgress() {
     progress += 100 / (LOOP_SECONDS / 0.2);
     if (progress > 100) progress = 0;
     if (progressBar) progressBar.style.width = progress + "%";
   }
-  function startFakeProgress() {
+
+  function startProgress() {
     if (prefersReducedMotion) return;
     stopProgress();
-    progressTimer = setInterval(tickFakeProgress, 200);
+    progressTimer = setInterval(tickProgress, 200);
   }
   function stopProgress() {
     if (progressTimer) clearInterval(progressTimer);
     progressTimer = null;
-  }
-
-  // keep the progress bar in sync with the real track when one is playing
-  if (cornerAudio) {
-    cornerAudio.addEventListener("timeupdate", function () {
-      if (!usingRealAudio || !progressBar || !cornerAudio.duration) return;
-      progressBar.style.width = (cornerAudio.currentTime / cornerAudio.duration) * 100 + "%";
-    });
   }
 
   if (playToggle) {
@@ -236,33 +210,18 @@
         iconPlay.style.display = isPlaying ? "none" : "block";
         iconPause.style.display = isPlaying ? "block" : "none";
       }
-
       if (isPlaying) {
-        if (cornerAudio) {
-          var playAttempt = cornerAudio.play();
-          if (playAttempt && typeof playAttempt.then === "function") {
-            playAttempt.then(function () {
-              usingRealAudio = true;
-              if (!prefersReducedMotion) progressBar && (progressBar.style.transition = "width 0.15s linear");
-            }).catch(function (err) {
-              // no track file present (or it failed to load) — fall back to the synth loop
-              console.warn("Kono Corner: couldn't play assets/audio/corner-radio.mp3, falling back to synth loop.", err, cornerAudio.error);
-              usingRealAudio = false;
-              startSynthLoop();
-            });
-          } else {
-            // very old browsers without a Promise-based play() — assume it worked
-            usingRealAudio = true;
-          }
-        } else {
-          startSynthLoop();
+        var ctx = ensureAudioCtx();
+        if (ctx) {
+          if (ctx.state === "suspended") ctx.resume();
+          scheduleLoop(ctx);
+          loopTimer = setInterval(function () { scheduleLoop(ctx); }, LOOP_SECONDS * 1000);
         }
+        startProgress();
       } else {
-        if (usingRealAudio && cornerAudio) {
-          cornerAudio.pause();
-        } else {
-          stopSynthLoop();
-        }
+        if (loopTimer) clearInterval(loopTimer);
+        loopTimer = null;
+        if (audioCtx) audioCtx.suspend();
         stopProgress();
       }
     });
