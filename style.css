@@ -1225,6 +1225,56 @@ body.menu-open { overflow: hidden; }
 }
 
 /* -----------------------------------------------------------------
+   LATEST UPDATES (standalone — sits between Telegram and Contact)
+----------------------------------------------------------------- */
+.updates { padding: var(--space-section) 0 0; }
+.updates__lead {
+  text-align: center;
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  max-width: 480px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.updates__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.update-card {
+  background: var(--paper);
+  border: 2px solid var(--navy);
+  border-radius: var(--radius-sm);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-soft);
+  transform: rotate(var(--r, 0deg));
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-out);
+}
+.update-card:hover { transform: rotate(0deg) translateY(-4px); box-shadow: var(--shadow-lift); }
+.update-card__title {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.update-card__text {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.updates__note {
+  text-align: center;
+  font-family: var(--font-hand);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--blue-ink);
+  margin-top: 30px;
+  transform: rotate(-1deg);
+}
+
+/* -----------------------------------------------------------------
    13. CONTACT
 ----------------------------------------------------------------- */
 .contact { padding: var(--space-section) 0 96px; }
@@ -1381,6 +1431,7 @@ body.menu-open { overflow: hidden; }
   .timeline { grid-template-columns: repeat(2, 1fr); }
   .contact__socials { grid-template-columns: repeat(3, 1fr); max-width: 100%; }
   .about__note { display: block; }
+  .updates__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (min-width: 860px) {
