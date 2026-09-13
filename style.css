@@ -970,7 +970,7 @@ body.menu-open { overflow: hidden; }
 /* the pricebox is reused from Binder Deco (see .feature__pricebox), which is
    left-aligned by default for its two-column layout — recenter it here so
    it sits neatly under the three cards instead of hugging the left edge */
-.digital-design .feature__pricebox { margin: 8px auto 14px; max-width: 640px; }
+.digital-design .feature__pricebox { margin: 36px auto 14px; max-width: 640px; }
 .digital-design .feature__note { text-align: center; }
 
 /* -----------------------------------------------------------------
