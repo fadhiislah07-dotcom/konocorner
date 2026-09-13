@@ -50,7 +50,8 @@
   .sparkle1, .sparkle2, .sparkle3,
   .tape-ticker__track,
   .status-dot,
-  .scroll-hint svg {
+  .scroll-hint svg,
+  body::after {
     animation: none !important;
   }
   * { transition-duration: 0.001ms !important; }
@@ -69,8 +70,9 @@ body {
   font-family: var(--font-body);
   color: var(--ink);
   background:
-    radial-gradient(circle at 1px 1px, rgba(28,43,74,0.05) 1px, transparent 1.6px) 0 0/22px 22px,
-    var(--off-white);
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cpath d='M107.1,50.9 L108.4,54.0 L111.5,55.3 L108.4,56.5 L107.1,59.6 L105.9,56.5 L102.8,55.3 L105.9,54.0 Z' fill='%237fb0e0' fill-opacity='0.82'/%3E%3Cpath d='M38.2,179.6 L39.7,183.4 L43.4,184.8 L39.7,186.3 L38.2,190.1 L36.7,186.3 L33.0,184.8 L36.7,183.4 Z' fill='%23cfe6f7' fill-opacity='0.6'/%3E%3Cpath d='M231.4,88.3 L232.6,91.4 L235.7,92.6 L232.6,93.8 L231.4,96.9 L230.2,93.8 L227.1,92.6 L230.2,91.4 Z' fill='%23a9cceb' fill-opacity='0.7'/%3E%3Cpath d='M280.9,231.7 L282.7,236.4 L287.4,238.2 L282.7,240.0 L280.9,244.7 L279.1,240.0 L274.4,238.2 L279.1,236.4 Z' fill='%237fb0e0' fill-opacity='0.55'/%3E%3Cpath d='M17.3,281.6 L18.4,284.3 L21.1,285.4 L18.4,286.5 L17.3,289.2 L16.2,286.5 L13.5,285.4 L16.2,284.3 Z' fill='%23cfe6f7' fill-opacity='0.75'/%3E%3Cpath d='M159.8,142.5 L161.5,146.8 L165.8,148.5 L161.5,150.2 L159.8,154.5 L158.1,150.2 L153.8,148.5 L158.1,146.8 Z' fill='%23a9cceb' fill-opacity='0.5'/%3E%3Cpath d='M64.5,15.2 L65.6,18.0 L68.4,19.1 L65.6,20.2 L64.5,23.0 L63.4,20.2 L60.6,19.1 L63.4,18.0 Z' fill='%237fb0e0' fill-opacity='0.68'/%3E%3Cpath d='M300.2,20.4 L301.9,24.7 L306.2,26.4 L301.9,28.1 L300.2,32.4 L298.5,28.1 L294.2,26.4 L298.5,24.7 Z' fill='%23cfe6f7' fill-opacity='0.62'/%3E%3Cpath d='M12.6,110.8 L13.5,113.0 L15.7,113.9 L13.5,114.8 L12.6,117.0 L11.7,114.8 L9.5,113.9 L11.7,113.0 Z' fill='%23a9cceb' fill-opacity='0.8'/%3E%3Cpath d='M197.3,270.1 L198.6,273.3 L201.8,274.6 L198.6,275.9 L197.3,279.1 L196.0,275.9 L192.8,274.6 L196.0,273.3 Z' fill='%237fb0e0' fill-opacity='0.58'/%3E%3Cpath d='M251.6,160.3 L252.7,163.1 L255.5,164.2 L252.7,165.3 L251.6,168.1 L250.5,165.3 L247.7,164.2 L250.5,163.1 Z' fill='%23cfe6f7' fill-opacity='0.72'/%3E%3Cpath d='M87.9,220.6 L89.4,224.4 L93.2,225.9 L89.4,227.4 L87.9,231.2 L86.4,227.4 L82.6,225.9 L86.4,224.4 Z' fill='%23a9cceb' fill-opacity='0.65'/%3E%3Cpath d='M141.2,10.7 L142.2,13.2 L144.7,14.2 L142.2,15.2 L141.2,17.7 L140.2,15.2 L137.7,14.2 L140.2,13.2 Z' fill='%237fb0e0' fill-opacity='0.5'/%3E%3Cpath d='M5.8,50.3 L7.2,53.8 L10.7,55.2 L7.2,56.6 L5.8,60.1 L4.4,56.6 L0.9,55.2 L4.4,53.8 Z' fill='%23cfe6f7' fill-opacity='0.7'/%3E%3Cpath d='M269.4,300.9 L270.3,303.2 L272.6,304.1 L270.3,305.0 L269.4,307.3 L268.5,305.0 L266.2,304.1 L268.5,303.2 Z' fill='%23a9cceb' fill-opacity='0.6'/%3E%3Cpath d='M178.6,200.2 L179.9,203.4 L183.1,204.7 L179.9,206.0 L178.6,209.2 L177.3,206.0 L174.1,204.7 L177.3,203.4 Z' fill='%237fb0e0' fill-opacity='0.78'/%3E%3Cpath d='M310.5,140.6 L311.4,142.9 L313.7,143.8 L311.4,144.7 L310.5,147.0 L309.6,144.7 L307.3,143.8 L309.6,142.9 Z' fill='%23cfe6f7' fill-opacity='0.55'/%3E%3C/svg%3E") 0 0/320px 320px repeat,
+    radial-gradient(circle at 1px 1px, rgba(28,43,74,0.04) 1px, transparent 1.6px) 0 0/22px 22px,
+    linear-gradient(180deg, var(--blue-baby-2) 0%, var(--off-white) 60%);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   position: relative;
@@ -85,6 +87,21 @@ body::before {
   opacity: 0.4;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.11 0 0 0 0 0.17 0 0 0 0 0.29 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* second scattered-star layer, gently fading in and out for a soft glitter effect */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cpath d='M50.3,20.6 L51.7,24.2 L55.4,25.6 L51.7,27.0 L50.3,30.6 L48.9,27.0 L45.2,25.6 L48.9,24.2 Z' fill='%23cfe6f7' fill-opacity='0.7'/%3E%3Cpath d='M280.7,60.2 L281.7,62.6 L284.1,63.6 L281.7,64.6 L280.7,67.0 L279.7,64.6 L277.3,63.6 L279.7,62.6 Z' fill='%237fb0e0' fill-opacity='0.6'/%3E%3Cpath d='M150.9,100.4 L152.5,104.4 L156.6,106.0 L152.5,107.6 L150.9,111.6 L149.3,107.6 L145.2,106.0 L149.3,104.4 Z' fill='%23a9cceb' fill-opacity='0.75'/%3E%3Cpath d='M20.4,150.8 L21.3,153.1 L23.6,154.0 L21.3,154.9 L20.4,157.2 L19.5,154.9 L17.2,154.0 L19.5,153.1 Z' fill='%23cfe6f7' fill-opacity='0.55'/%3E%3Cpath d='M300.6,180.3 L302.1,184.1 L305.9,185.6 L302.1,187.1 L300.6,190.9 L299.1,187.1 L295.3,185.6 L299.1,184.1 Z' fill='%237fb0e0' fill-opacity='0.68'/%3E%3Cpath d='M110.2,220.7 L111.1,222.9 L113.3,223.8 L111.1,224.7 L110.2,226.9 L109.3,224.7 L107.1,223.8 L109.3,222.9 Z' fill='%23a9cceb' fill-opacity='0.8'/%3E%3Cpath d='M240.8,250.5 L242.3,254.3 L246.1,255.8 L242.3,257.3 L240.8,261.1 L239.3,257.3 L235.5,255.8 L239.3,254.3 Z' fill='%23cfe6f7' fill-opacity='0.6'/%3E%3Cpath d='M60.5,280.9 L61.4,283.1 L63.6,284.0 L61.4,284.9 L60.5,287.1 L59.6,284.9 L57.4,284.0 L59.6,283.1 Z' fill='%237fb0e0' fill-opacity='0.72'/%3E%3Cpath d='M190.3,10.2 L191.2,12.4 L193.4,13.3 L191.2,14.2 L190.3,16.4 L189.4,14.2 L187.2,13.3 L189.4,12.4 Z' fill='%23a9cceb' fill-opacity='0.5'/%3E%3Cpath d='M10.7,90.6 L12.2,94.4 L16.0,95.9 L12.2,97.4 L10.7,101.2 L9.2,97.4 L5.4,95.9 L9.2,94.4 Z' fill='%23cfe6f7' fill-opacity='0.65'/%3E%3Cpath d='M270.9,120.3 L271.8,122.5 L274.0,123.4 L271.8,124.3 L270.9,126.5 L270.0,124.3 L267.8,123.4 L270.0,122.5 Z' fill='%237fb0e0' fill-opacity='0.58'/%3E%3Cpath d='M130.4,260.8 L131.9,264.6 L135.7,266.1 L131.9,267.6 L130.4,271.4 L128.9,267.6 L125.1,266.1 L128.9,264.6 Z' fill='%23a9cceb' fill-opacity='0.7'/%3E%3Cpath d='M220.6,290.4 L221.5,292.6 L223.7,293.5 L221.5,294.4 L220.6,296.6 L219.7,294.4 L217.5,293.5 L219.7,292.6 Z' fill='%23cfe6f7' fill-opacity='0.62'/%3E%3Cpath d='M40.8,240.7 L41.7,242.9 L43.9,243.8 L41.7,244.7 L40.8,246.9 L39.9,244.7 L37.7,243.8 L39.9,242.9 Z' fill='%237fb0e0' fill-opacity='0.55'/%3E%3C/svg%3E") 0 0/320px 320px repeat;
+  opacity: 0.3;
+  animation: twinkleStars 5s ease-in-out infinite;
+}
+@keyframes twinkleStars {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.55; }
 }
 header, main, footer, .toast, .cursor-glow, .mobile-menu, .mobile-menu__backdrop { position: relative; z-index: 1; }
 
