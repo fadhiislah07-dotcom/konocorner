@@ -1208,7 +1208,15 @@ body.menu-open { overflow: hidden; }
    DIGITAL DESIGN PRICING (standalone — same corkboard/price-card
    look as Binder Deco pricing, just its own simple 3-up grid)
 ----------------------------------------------------------------- */
-.dd-price { padding: calc(var(--space-section) * 0.35) 0 var(--space-section); }
+.price-group { margin-top: 40px; }
+.price-group:first-of-type { margin-top: 8px; }
+.price-group__title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
 .dd-price-board {
   position: relative;
   background: var(--blue-baby-2);
