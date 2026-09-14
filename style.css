@@ -39,7 +39,7 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  --header-h: 68px;
+  --header-h: 60px;
   --space-section: clamp(56px, 9vw, 96px);
 }
 
@@ -131,7 +131,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .kicker-note {
   font-family: var(--font-hand);
-  font-size: 1.25rem;
+  font-size: 1.08rem;
   font-weight: 600;
   color: var(--blue-ink);
   margin: 0 0 6px;
@@ -141,10 +141,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .kicker-note--center { display: block; text-align: center; }
 
 .section-title {
-  font-size: clamp(1.9rem, 4vw, 2.6rem);
-  line-height: 1.15;
+  font-size: clamp(1.55rem, 3.4vw, 2.15rem);
+  line-height: 1.22;
 }
-.section-title--center { text-align: center; margin-bottom: 44px; }
+.section-title--center { text-align: center; margin-bottom: 38px; }
 
 /* generic scrapbook buttons */
 .btn {
@@ -153,9 +153,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   justify-content: center;
   gap: 6px;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  padding: 13px 26px;
+  padding: 11px 22px;
   border-radius: 999px;
   border: 2px solid var(--navy);
   transition: transform 0.22s var(--ease-spring), box-shadow 0.22s var(--ease-out);
@@ -254,10 +254,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   gap: 8px;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   color: var(--navy);
 }
-.brand__cd { width: 22px; height: 22px; color: var(--blue-ink); flex-shrink: 0; }
+.brand__cd { width: 19px; height: 19px; color: var(--blue-ink); flex-shrink: 0; }
 
 .nav-desktop {
   display: none;
@@ -266,7 +266,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .nav-link {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--ink-soft);
   padding: 8px 12px;
@@ -383,7 +383,7 @@ body.menu-open { overflow: hidden; }
 ----------------------------------------------------------------- */
 .hero {
   position: relative;
-  padding: 56px 0 40px;
+  padding: 64px 0 40px;
 }
 .hero__inner {
   max-width: 1160px;
@@ -396,9 +396,9 @@ body.menu-open { overflow: hidden; }
 }
 .hero__copy { position: relative; z-index: 2; text-align: center; }
 .hero__title {
-  font-size: clamp(2.3rem, 8vw, 3.6rem);
-  line-height: 1.1;
-  margin: 6px 0 16px;
+  font-size: clamp(1.9rem, 6vw, 2.75rem);
+  line-height: 1.2;
+  margin: 12px 0 20px;
 }
 .hero__title-highlight { position: relative; display: inline-block; }
 .hero__squiggle {
@@ -411,11 +411,11 @@ body.menu-open { overflow: hidden; }
   z-index: -1;
 }
 .hero__subtext {
-  font-size: 1.05rem;
+  font-size: clamp(0.92rem, 1.6vw, 0.98rem);
   color: var(--ink-soft);
-  line-height: 1.65;
-  max-width: 480px;
-  margin: 0 auto 26px;
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto 30px;
 }
 .hero__buttons {
   display: flex;
@@ -702,8 +702,8 @@ body.menu-open { overflow: hidden; }
   padding: 5px;
 }
 .about__body {
-  font-size: 1.02rem;
-  line-height: 1.75;
+  font-size: 0.96rem;
+  line-height: 1.7;
   color: var(--ink);
   display: grid;
   gap: 16px;
@@ -771,11 +771,11 @@ body.menu-open { overflow: hidden; }
   color: var(--navy);
 }
 .service-card__title {
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   margin: 14px 0 8px;
 }
 .service-card__text {
-  font-size: 0.94rem;
+  font-size: 0.89rem;
   color: var(--ink-soft);
   line-height: 1.55;
   margin-bottom: 16px;
@@ -824,7 +824,7 @@ body.menu-open { overflow: hidden; }
   z-index: 1;
 }
 .feature .section-title, .feature .kicker-note { color: var(--cream); }
-.feature__lead { font-size: 1.02rem; line-height: 1.65; margin: 14px 0 22px; color: var(--blue-baby-2); max-width: 480px; }
+.feature__lead { font-size: 0.95rem; line-height: 1.6; margin: 14px 0 22px; color: var(--blue-baby-2); max-width: 480px; }
 
 .feature__visual { position: relative; display: flex; justify-content: center; }
 .feature__visual::before {
@@ -923,14 +923,14 @@ body.menu-open { overflow: hidden; }
   text-align: center;
   font-family: var(--font-hand);
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   color: var(--blue-baby-2);
 }
 .digital-design__desc {
   max-width: 620px;
   margin: 0 auto 40px;
   text-align: center;
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   line-height: 1.65;
   color: var(--blue-baby-2);
 }
@@ -1197,7 +1197,7 @@ body.menu-open { overflow: hidden; }
 .price-card--premium .price-card__amount { color: var(--cream); }
 .price-card__amount span { color: var(--blue-ink); }
 .price-card--premium .price-card__amount span { color: var(--blue-sky); }
-.price-card__desc { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+.price-card__desc { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; }
 .price-card--premium .price-card__desc { color: var(--blue-baby-2); }
 
 .price-board__note {
@@ -1341,7 +1341,7 @@ body.menu-open { overflow: hidden; }
 }
 .accordion__answer p {
   padding: 0 18px 16px;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   color: var(--ink-soft);
   line-height: 1.6;
 }
@@ -1467,7 +1467,7 @@ body.menu-open { overflow: hidden; }
 .contact__lead {
   font-family: var(--font-hand);
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--blue-baby-2);
   line-height: 1.4;
   margin: -14px 0 26px;
