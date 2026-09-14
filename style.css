@@ -753,7 +753,7 @@ body.menu-open { overflow: hidden; }
   border-radius: var(--radius-md);
   padding: 26px 22px 22px;
   box-shadow: var(--shadow-soft);
-  transform: rotate(var(--r, 0deg));
+  transform: rotate(0deg); /* straightened — was rotate(var(--r, Xdeg)) */
   transition: transform 0.28s var(--ease-spring), box-shadow 0.28s var(--ease-out);
 }
 .service-card:hover { transform: rotate(0deg) translateY(-6px); box-shadow: var(--shadow-lift); }
@@ -947,7 +947,7 @@ body.menu-open { overflow: hidden; }
   border-radius: var(--radius-md);
   padding: 24px 22px;
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
-  transform: rotate(var(--r, 0deg));
+  transform: rotate(0deg); /* straightened — was rotate(var(--r, Xdeg)) */
   transition: transform 0.28s var(--ease-spring), box-shadow 0.28s var(--ease-out);
 }
 .digital-design__card:hover { transform: rotate(0deg) translateY(-4px); }
@@ -1007,7 +1007,7 @@ body.menu-open { overflow: hidden; }
   border: 2px solid var(--navy);
   border-radius: var(--radius-sm);
   padding: 16px 18px 16px 60px;
-  transform: rotate(var(--r, 0deg));
+  transform: rotate(0deg); /* straightened — was rotate(var(--r, Xdeg)) */
   box-shadow: var(--shadow-soft);
   transition: transform 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-out);
 }
@@ -1051,7 +1051,7 @@ body.menu-open { overflow: hidden; }
   background: var(--paper);
   break-inside: avoid;
   box-shadow: var(--shadow-soft);
-  transform: rotate(var(--r, 0deg));
+  transform: rotate(0deg); /* straightened — was rotate(var(--r, Xdeg)) */
   transition: transform 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-out);
 }
 .gallery-item:hover { transform: rotate(0deg) scale(1.03); box-shadow: var(--shadow-lift); }
@@ -1160,7 +1160,7 @@ body.menu-open { overflow: hidden; }
   border-radius: var(--radius-md);
   padding: 22px;
   text-align: center;
-  transform: rotate(var(--r, 0deg));
+  transform: rotate(0deg); /* straightened — was rotate(var(--r, Xdeg)) */
   box-shadow: var(--shadow-soft);
   position: relative;
   transition: transform 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-out);
@@ -1265,7 +1265,7 @@ body.menu-open { overflow: hidden; }
   border-radius: var(--radius-md);
   padding: 22px;
   text-align: center;
-  transform: rotate(var(--r, 0deg));
+  transform: rotate(0deg); /* straightened — was rotate(var(--r, Xdeg)) */
   box-shadow: var(--shadow-soft);
   transition: transform 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-out);
 }
@@ -1422,7 +1422,7 @@ body.menu-open { overflow: hidden; }
   border-radius: var(--radius-sm);
   padding: 22px 20px;
   box-shadow: var(--shadow-soft);
-  transform: rotate(var(--r, 0deg));
+  transform: rotate(0deg); /* straightened — was rotate(var(--r, Xdeg)) */
   transition: transform 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-out);
 }
 .update-card:hover { transform: rotate(0deg) translateY(-4px); box-shadow: var(--shadow-lift); }
