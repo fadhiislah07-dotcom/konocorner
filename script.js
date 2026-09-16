@@ -291,6 +291,53 @@
   // first appearance after a little delay, so it feels natural
   scheduleNextToast(6000);
 
+  // a plain, on-demand toast for action confirmations (e.g. "message copied ♡") —
+  // reuses the same toast box but ignores the easter egg's show-count/dismiss state,
+  // since this one is a direct response to something the visitor just clicked
+  var flashToastTimer = null;
+  function flashToast(text) {
+    if (!toast || !toastText) return;
+    toastText.textContent = text;
+    toast.classList.add("is-visible");
+    if (flashToastTimer) clearTimeout(flashToastTimer);
+    if (toastHideTimer) clearTimeout(toastHideTimer);
+    flashToastTimer = setTimeout(hideToast, 5000);
+  }
+
+  /* -----------------------------------------------------------
+     TELEGRAM DM BUTTONS (e.g. "Request a design →")
+     Telegram's public deep links can open a direct chat with a
+     specific person (t.me/username), OR pre-fill a text box
+     (t.me/share/url?text=...) — but not both at once for a normal
+     account. Pre-filling straight into someone's DM only works for
+     Telegram bots via a "start" payload, which needs a bot/backend
+     to read it, so it's not available for a plain personal DM link.
+     Workaround used here: copy the ready-made message to the
+     visitor's clipboard, then open the DM — they just paste it in.
+  ----------------------------------------------------------- */
+  document.querySelectorAll(".js-telegram-dm").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      var url = btn.getAttribute("data-telegram-url");
+      var message = btn.getAttribute("data-telegram-message") || "";
+
+      function openChat() {
+        window.open(url, "_blank", "noopener");
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(message).then(function () {
+          flashToast("Message copied ♡ just paste it in the chat!");
+          openChat();
+        }).catch(function () {
+          openChat();
+        });
+      } else {
+        openChat();
+      }
+    });
+  });
+
   /* -----------------------------------------------------------
      CURSOR SPARKLE GLOW (desktop only, purely decorative)
   ----------------------------------------------------------- */
