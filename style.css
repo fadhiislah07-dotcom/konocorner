@@ -983,6 +983,12 @@ body.menu-open { overflow: hidden; }
   margin: 32px 0 22px;
 }
 .digital-design__cta { text-align: center; }
+.digital-design__cta-hint {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--blue-baby);
+}
 
 /* the pricebox is reused from Binder Deco (see .feature__pricebox), which is
    left-aligned by default for its two-column layout — recenter it here so
