@@ -86,10 +86,10 @@
   document.querySelectorAll(".gallery-item").forEach(function (item) {
     item.addEventListener("click", function () {
       var caption = item.getAttribute("data-caption") || "";
-      var imgEl = item.querySelector("img");
+      var realImage = item.getAttribute("data-image");
 
-      lightboxImage.src = imgEl ? imgEl.src : "";
-      lightboxImage.alt = imgEl ? imgEl.alt : caption;
+      lightboxImage.src = realImage || "";
+      lightboxImage.alt = caption;
       lightboxCaption.textContent = caption;
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
