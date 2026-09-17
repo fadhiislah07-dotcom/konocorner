@@ -86,12 +86,10 @@
   document.querySelectorAll(".gallery-item").forEach(function (item) {
     item.addEventListener("click", function () {
       var caption = item.getAttribute("data-caption") || "";
-      var phEl = item.querySelector(".gallery-item__ph");
-      var phClass = phEl ? phEl.className.replace("gallery-item__ph", "").trim() : "";
+      var imgEl = item.querySelector("img");
 
-      // REPLACE THIS IMAGE: once you swap placeholders for real <img> tags,
-      // update this to show item.querySelector('img').src instead.
-      lightboxImage.className = "lightbox__image " + phClass;
+      lightboxImage.src = imgEl ? imgEl.src : "";
+      lightboxImage.alt = imgEl ? imgEl.alt : caption;
       lightboxCaption.textContent = caption;
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
