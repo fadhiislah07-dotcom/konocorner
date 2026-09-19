@@ -593,7 +593,7 @@ body.menu-open { overflow: hidden; }
   color: var(--navy);
 }
 
-.scrap--tape { width: 64px; height: 24px; background: repeating-linear-gradient(45deg, var(--blue-sky), var(--blue-sky) 5px, var(--blue-baby-2) 5px, var(--blue-baby-2) 10px); opacity: 0.9; box-shadow: var(--shadow-tape); z-index: 2; }
+.scrap--tape { width: clamp(46px, 16vw, 64px); height: clamp(18px, 6vw, 24px); background: repeating-linear-gradient(45deg, var(--blue-sky), var(--blue-sky) 5px, var(--blue-baby-2) 5px, var(--blue-baby-2) 10px); opacity: 0.9; box-shadow: var(--shadow-tape); z-index: 2; }
 .scrap--tape1 { top: 8%; left: 4%; transform: rotate(-24deg); }
 .scrap--tape2 { top: 34%; right: 3%; transform: rotate(32deg); }
 
